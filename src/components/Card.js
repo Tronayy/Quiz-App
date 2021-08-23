@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+var score = 0;
 const Card = (props) => {
   const [options, setOptions] = useState([]);
 
@@ -24,12 +24,16 @@ const Card = (props) => {
   const handleChoose = (event) => {
     const ans = event.target.innerHTML;
     if (ans.includes(answer)) {
-      props.fn(true);
-    }
+      console.log("correct");
+      score++;
+    } else console.log("incorrect");
+    props.fn(true);
   };
 
   return (
     <>
+      <div>Question Number {props.number + 1}/10</div>
+      <div>Score: {score}</div>
       <p>{props.data[props.number].question}</p>
       <div>
         <button onClick={handleChoose}>{options[0]}</button>
