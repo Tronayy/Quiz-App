@@ -1,8 +1,10 @@
 import "./App.css";
 import { useCallback, useState } from "react";
+import Card from "./components/Card";
 
 function App() {
   const [questions, setQuestions] = useState([]);
+  const [showBtn, setShowBtn] = useState(true);
 
   const getQuestionsHandler = useCallback(async () => {
     const response = await fetch(
@@ -18,17 +20,18 @@ function App() {
       };
     });
     setQuestions(gotQuestions);
+    setShowBtn(false);
   }, []);
 
   if (questions.length > 0) {
-    console.log(questions);
   }
 
   return (
     <div className="App">
       React Quiz
       <div>
-        <button onClick={getQuestionsHandler}>Start Quiz</button>
+        {showBtn && <button onClick={getQuestionsHandler}>Start Quiz</button>}
+        {!showBtn && <Card data={questions} />}
       </div>
     </div>
   );
