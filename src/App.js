@@ -1,6 +1,7 @@
 import "./App.css";
 import { useCallback, useState } from "react";
 import Card from "./components/Card";
+import EndCard from "./components/EndCard";
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -40,7 +41,7 @@ function App() {
       <div>
         {showBtn && <button onClick={getQuestionsHandler}>Start Quiz</button>}
 
-        {!showBtn && (
+        {!showBtn && qNo <= 9 && (
           <Card
             data={questions}
             number={qNo}
@@ -48,6 +49,8 @@ function App() {
             fn={setChooseAns}
           />
         )}
+
+        {!showBtn && qNo > 9 && <EndCard />}
       </div>
       <br />
       {!showBtn && chooseAns && (
