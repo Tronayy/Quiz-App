@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Button from "react-bootstrap/Button";
+
 const Card = (props) => {
   const [options, setOptions] = useState([]);
 
@@ -36,16 +38,16 @@ const Card = (props) => {
       <div>Score: {props.score}</div>
       <p>{props.data[props.number].question}</p>
       <div>
-        <button onClick={handleChoose}>{options[0]}</button>
+        <Button onClick={handleChoose}>{options[0]}</Button>
       </div>
       <div>
-        <button onClick={handleChoose}>{options[1]}</button>
+        <Button onClick={handleChoose}>{options[1]}</Button>
       </div>
       <div>
-        <button onClick={handleChoose}>{options[2]}</button>
+        <Button onClick={handleChoose}>{options[2]}</Button>
       </div>
       <div>
-        <button onClick={handleChoose}>{options[3]}</button>
+        <Button onClick={handleChoose}>{options[3]}</Button>
       </div>
     </>
   );

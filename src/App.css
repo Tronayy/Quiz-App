@@ -1,5 +1,13 @@
 .App {
   text-align: center;
-  height: 100vw;
-  background-color: lightblue;
+  height: 56vw;
+  background-image: url("https://images.unsplash.com/photo-1603573355706-3f15d98cf100?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=200");
+  background-repeat: no-repeat;
+  /* background-size: contain; */
+}
+
+.Header {
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
 }

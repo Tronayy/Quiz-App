@@ -1,3 +1,5 @@
+import Button from "react-bootstrap/Button";
+
 const EndCard = (props) => {
   const reset = () => {
     props.fnStart(true);
@@ -7,7 +9,7 @@ const EndCard = (props) => {
   return (
     <>
       <p>Your score was {props.score}/10</p>
-      <button onClick={reset}>Try Again</button>
+      <Button onClick={reset}>Try Again</Button>
     </>
   );
 };
