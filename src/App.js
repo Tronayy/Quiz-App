@@ -1,6 +1,6 @@
 import "./App.css";
 import { useCallback, useState } from "react";
-import Card from "./components/Card";
+import Cards from "./components/Card";
 import EndCard from "./components/EndCard";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
@@ -58,7 +58,7 @@ function App() {
         {showBtn && <Button onClick={getQuestionsHandler}>Start Quiz</Button>}
 
         {!showBtn && qNo <= 9 && (
-          <Card
+          <Cards
             data={questions}
             number={qNo}
             choose={chooseAns}
