@@ -3,7 +3,8 @@ import Button from "react-bootstrap/Button";
 import { Card } from "react-bootstrap";
 import "./Card.css";
 
-var getColor = "secondary";
+var dis;
+var getColor = ["secondary", "secondary", "secondary", "secondary"];
 const Cards = (props) => {
   const [options, setOptions] = useState([]);
 
@@ -27,18 +28,35 @@ const Cards = (props) => {
 
   const handleChoose = (event) => {
     const ans = event.target.innerHTML;
-    const right = event.target;
-    console.log(event.target);
+    const right = event.target.attributes[0].nodeValue;
+    dis = true;
+    console.log(event.target.attributes[0].nodeValue);
+
     if (ans.includes(answer)) {
-      if (right.includes("Btn1")) {
-        getColor = "success";
-      }
       // getColor = "success";
       const n = props.score + 1;
       props.fnScore(n);
+    } else {
+      if (right.includes("Btn1")) {
+        getColor[0] = "danger";
+      }
+      if (right.includes("Btn2")) {
+        getColor[1] = "danger";
+      }
+      if (right.includes("Btn3")) {
+        getColor[2] = "danger";
+      }
+      if (right.includes("Btn4")) {
+        getColor[3] = "danger";
+      }
     }
+
     props.fnAns(true);
-    setTimeout(() => (getColor = "secondary"), 10);
+    setTimeout(
+      () => (getColor = ["secondary", "secondary", "secondary", "secondary"]),
+      10
+    );
+    setTimeout(() => (dis = false), 10);
   };
 
   return (
@@ -57,22 +75,42 @@ const Cards = (props) => {
         <Card.Body>
           <p>{props.data[props.number].question}</p>
           <div className="button d-grid gap-2">
-            <Button id="Btn1" variant={getColor} onClick={handleChoose}>
+            <Button
+              id="Btn1"
+              variant={getColor[0]}
+              onClick={handleChoose}
+              disabled={dis === true ? true : false}
+            >
               {options[0]}
             </Button>
           </div>
           <div className="button d-grid gap-2">
-            <Button id="Btn2" variant="danger" onClick={handleChoose}>
+            <Button
+              id="Btn2"
+              variant={getColor[1]}
+              onClick={handleChoose}
+              disabled={dis === true ? true : false}
+            >
               {options[1]}
             </Button>
           </div>
           <div className="button d-grid gap-2">
-            <Button id="Btn3" variant="secondary" onClick={handleChoose}>
+            <Button
+              id="Btn3"
+              variant={getColor[2]}
+              onClick={handleChoose}
+              disabled={dis === true ? true : false}
+            >
               {options[2]}
             </Button>
           </div>
           <div className="button d-grid gap-2">
-            <Button id="Btn4" variant="secondary" onClick={handleChoose}>
+            <Button
+              id="Btn4"
+              variant={getColor[3]}
+              onClick={handleChoose}
+              disabled={dis === true ? true : false}
+            >
               {options[3]}
             </Button>
           </div>
