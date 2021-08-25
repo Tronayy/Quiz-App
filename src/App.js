@@ -3,7 +3,6 @@ import { useCallback, useState } from "react";
 import Cards from "./components/Card";
 import EndCard from "./components/EndCard";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 
 function App() {
   const [questions, setQuestions] = useState([]);
@@ -55,7 +54,11 @@ function App() {
     <div className="App">
       <h1 className="Header">React Quiz</h1>
       <div>
-        {showBtn && <Button onClick={getQuestionsHandler}>Start Quiz</Button>}
+        {showBtn && (
+          <button className="Btn" onClick={getQuestionsHandler}>
+            Start Quiz
+          </button>
+        )}
 
         {!showBtn && qNo <= 9 && (
           <Cards
@@ -80,12 +83,16 @@ function App() {
       <br />
       <div>
         {!showBtn && chooseAns && qNo <= 8 && (
-          <Button onClick={nextHandler}>Next Question</Button>
+          <button className="Btn" onClick={nextHandler}>
+            Next Question
+          </button>
         )}
       </div>
       <div>
         {!showBtn && chooseAns && qNo === 9 && (
-          <Button onClick={nextHandler}>End Quiz</Button>
+          <button className="Btn" onClick={nextHandler}>
+            End Quiz
+          </button>
         )}
       </div>
     </div>

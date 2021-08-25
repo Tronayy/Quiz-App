@@ -28,26 +28,47 @@ const Cards = (props) => {
 
   const handleChoose = (event) => {
     const ans = event.target.innerHTML;
-    const right = event.target.attributes[0].nodeValue;
+    const choice = event.target.attributes[0].nodeValue;
     dis = true;
     console.log(event.target.attributes[0].nodeValue);
 
     if (ans.includes(answer)) {
+      // if (choice.includes("Btn1")) {
+      //   getColor[0] = "success";
+      // }
+      // if (choice.includes("Btn2")) {
+      //   getColor[1] = "success";
+      // }
+      // if (choice.includes("Btn3")) {
+      //   getColor[2] = "success";
+      // }
+      // if (choice.includes("Btn4")) {
+      //   getColor[3] = "success";
+      // }
       // getColor = "success";
       const n = props.score + 1;
       props.fnScore(n);
     } else {
-      if (right.includes("Btn1")) {
+      if (choice.includes("Btn1")) {
         getColor[0] = "danger";
       }
-      if (right.includes("Btn2")) {
+      if (choice.includes("Btn2")) {
         getColor[1] = "danger";
       }
-      if (right.includes("Btn3")) {
+      if (choice.includes("Btn3")) {
         getColor[2] = "danger";
       }
-      if (right.includes("Btn4")) {
+      if (choice.includes("Btn4")) {
         getColor[3] = "danger";
+      }
+    }
+
+    const x = document.querySelectorAll("Button");
+    if (x) {
+      for (let i = 0; i < 4; i++) {
+        if (x[i].innerHTML.includes(answer)) {
+          getColor[i] = "success";
+        }
       }
     }
 

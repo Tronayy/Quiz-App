@@ -1,4 +1,4 @@
-import Button from "react-bootstrap/Button";
+import "./EndCard.css";
 
 const EndCard = (props) => {
   const reset = () => {
@@ -8,8 +8,10 @@ const EndCard = (props) => {
 
   return (
     <>
-      <p>Your score was {props.score}/10</p>
-      <Button onClick={reset}>Try Again</Button>
+      <p className="p">Your score was {props.score}/10</p>
+      <button className="Btn" onClick={reset}>
+        Try Again
+      </button>
     </>
   );
 };
