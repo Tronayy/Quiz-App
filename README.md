@@ -12,3 +12,5 @@ The app makes use of the following:
 This is my first personal project on React JS. 
 
 Here is the link to the deployed app: https://tronayyquizz.netlify.app/
+
+##
