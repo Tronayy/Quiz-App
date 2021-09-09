@@ -1,4 +1,4 @@
-#Quiz-App
+# Quiz-App
 
 An application that generates 10 random questions from an API and then asks the user to choose the correct answer out of 4 options. The application then displays the final score of the user and asks if he/she wants to give it another go.
 
